@@ -31,13 +31,17 @@
 #endif
 
 /* How to obtain thread-local storage */
-#define THREAD_LOCAL  
+#if defined(_MSC_VER)
+#define THREAD_LOCAL __declspec(thread)
+#else
+#define THREAD_LOCAL __thread
+#endif
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME  "libjpeg-turbo"
 
 /* Version number of package */
-#define VERSION  "2.1.4"
+#define VERSION  "3.1.0"
 
 /* The size of `size_t', as computed by sizeof. */
 #ifdef __SIZEOF_SIZE_T__
